@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Italiana&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap');
+
+:root {
+  color-scheme: light;
+  --ivory: #fff9ef;
+  --maroon: #42131e;
+  --gold: #b5965a;
+  font-family: 'DM Sans', sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; min-width: 320px; color: var(--ivory); background: var(--maroon); }
+.fort-scene { position: relative; display: grid; height: 100svh; min-height: 560px; overflow: hidden; isolation: isolate; place-items: center; background: #68483e; }
+.scene-sky { position: absolute; z-index: -3; inset: 0; background: radial-gradient(ellipse at 50% 62%, #f4cf96 0, #c78461 28%, transparent 64%), linear-gradient(180deg, #5b6170 0%, #a06d5d 49%, #e1ad78 100%); }
+.scene-sky::after { position: absolute; inset: 58% 0 0; background: linear-gradient(0deg, #402a2b99, transparent); content: ''; }
+.scene-glow { position: absolute; z-index: -1; top: 25%; left: 50%; width: min(55vw, 720px); aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle, #fff4d9, #f6cb8b66 34%, transparent 70%); filter: blur(18px); opacity: .16; transform: translateX(-50%); }
+.revealed-copy { position: absolute; z-index: 0; top: 50%; left: 50%; width: min(90%, 760px); color: var(--maroon); text-align: center; transform: translate(-50%, -32%); }
+.eyebrow { margin: 0 0 17px; font-size: 10px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; }
+.revealed-copy h2, .invitation-content h2 { margin: 0; font-family: 'Playfair Display', Georgia, serif; font-size: clamp(28px, 4.5vw, 56px); font-weight: 400; line-height: 1.2; }
+.revealed-names { margin: 18px 0 0; font-family: Italiana, Georgia, serif; font-size: clamp(35px, 6vw, 74px); }
+.revealed-names span { color: #9e7442; font-family: 'Playfair Display', Georgia, serif; font-size: .45em; font-style: italic; }
+.revealed-date { margin: 15px 0 0; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; }
+.gate-pair { position: absolute; z-index: 2; inset: 0; display: grid; grid-template-columns: 1fr 1fr; perspective: 1500px; perspective-origin: center; }
+.gate-panel { position: relative; overflow: hidden; transform-style: preserve-3d; backface-visibility: hidden; transition: transform 1.35s cubic-bezier(.22,.61,.36,1); }
+.gate-panel-left { transform-origin: left center; }
+.gate-panel-right { transform-origin: right center; }
+.gate-pair.is-open .gate-panel-left { transform: translateX(-8%) rotateY(-102deg); }
+.gate-pair.is-open .gate-panel-right { transform: translateX(8%) rotateY(102deg); }
+.gate-panel img { position: absolute; top: 0; width: 200%; height: 100%; max-width: none; object-fit: cover; object-position: center; }
+.gate-panel-left img { left: 0; object-position: left center; }
+.gate-panel-right img { right: 0; object-position: right center; }
+.gate-panel::after { position: absolute; inset: 0; background: linear-gradient(90deg, #21141936, #21141908 55%, #21141933); content: ''; pointer-events: none; }
+.cover-copy { position: absolute; z-index: 3; top: clamp(36px, 8vh, 88px); left: 50%; width: min(92%, 1000px); text-align: center; text-shadow: 0 2px 18px #291c1a66; transform: translateX(-50%); }
+.cover-copy .eyebrow { margin-bottom: 15px; color: #fff2d8; }
+.cover-copy h1 { margin: 0; font-family: Italiana, Georgia, serif; font-size: clamp(43px, 8vw, 104px); font-weight: 400; line-height: 1; }
+.cover-copy h1 span { display: inline-block; margin: 0 .17em; font-family: 'Playfair Display', Georgia, serif; font-size: .32em; font-style: italic; }
+.cover-date { margin: 17px 0 0; font-family: 'Playfair Display', Georgia, serif; font-size: clamp(14px, 1.8vw, 19px); letter-spacing: .05em; }
+.entry-control { position: absolute; z-index: 5; right: 16px; bottom: clamp(74px, 13vh, 136px); left: 16px; display: flex; justify-content: center; }
+.entry-control[hidden], .scroll-cue[hidden] { display: none; }
+.entry-button { display: grid; min-width: min(310px, 92vw); min-height: 72px; justify-items: center; align-content: center; gap: 7px; border: 1px solid #e1c78d; padding: 12px 24px; color: var(--ivory); background: #42131edb; box-shadow: 0 8px 28px #291c1a55; cursor: pointer; }
+.entry-button:hover, .entry-button:focus-visible { color: var(--maroon); background: var(--ivory); }
+.entry-button span { font-size: 10px; font-weight: 600; letter-spacing: .18em; }
+.entry-button small { color: #e9d6b7; font-family: 'Playfair Display', Georgia, serif; font-size: 12px; font-style: italic; }
+.entry-button:hover small, .entry-button:focus-visible small { color: var(--maroon); }
+.scroll-cue { position: absolute; z-index: 4; bottom: 23px; left: 50%; display: flex; align-items: center; gap: 10px; color: var(--ivory); font-size: 9px; letter-spacing: .17em; text-decoration: none; text-transform: uppercase; transform: translateX(-50%); }
+.scroll-cue span { font-size: 17px; }
+.scroll-progress { position: absolute; z-index: 4; right: 0; bottom: 0; left: 0; height: 2px; background: var(--gold); transform: scaleX(0); transform-origin: left center; }
+.invitation-content { display: grid; min-height: 76svh; align-content: center; justify-items: center; padding: 90px 24px; color: #291c1a; background: var(--ivory); text-align: center; }
+.invitation-content .eyebrow { color: var(--maroon); }
+.invitation-content > p:not(.eyebrow) { margin: 22px 0 0; color: #78645b; font-size: 13px; }
+.invitation-content .content-date { color: var(--maroon); font-size: 10px; letter-spacing: .14em; text-transform: uppercase; }
+.content-date span { padding-inline: 6px; color: var(--gold); }
+.audio-note:not(:empty) { position: fixed; z-index: 10; right: 12px; bottom: 12px; left: 12px; width: fit-content; max-width: calc(100% - 24px); margin: auto; border: 1px solid #b5965a99; padding: 10px 14px; color: var(--ivory); background: var(--maroon); font-size: 11px; text-align: center; }
+
+@media (max-width: 600px) {
+  .fort-scene { min-height: 520px; }
+  .cover-copy { top: 35px; }
+  .cover-copy h1 { display: grid; justify-items: center; gap: 4px; font-size: clamp(44px, 12vw, 62px); }
+  .cover-copy h1 span { font-size: .3em; }
+  .cover-date { margin-top: 12px; }
+  .gate-panel img { object-fit: cover; }
+  .revealed-copy { top: 48%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}

@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#42131e" />
+    <meta name="description" content="A scroll-driven fort gate opening invitation for Sachin and Shivani." />
+    <title>Sachin weds Shivani | Fort Gate Invitation</title>
+    <link rel="stylesheet" href="./fort-gate-demo.css" />
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script defer src="./fort-gate-demo.js"></script>
+  </head>
+  <body>
+    <main>
+      <section class="fort-scene" id="fort-scene" aria-labelledby="cover-title">
+        <div class="scene-sky" aria-hidden="true"></div>
+        <div class="scene-glow" aria-hidden="true"></div>
+
+        <div class="revealed-copy" aria-hidden="true">
+          <p class="eyebrow">A new chapter begins</p>
+          <h2>With joy in our hearts,<br />we invite you to celebrate</h2>
+          <p class="revealed-names">Sachin <span>&amp;</span> Shivani</p>
+          <p class="revealed-date">10 December 2026 · Durg, Chhattisgarh</p>
+        </div>
+
+        <div class="gate-pair" aria-hidden="true">
+          <div class="gate-panel gate-panel-left">
+            <img src="./media/fort-gateway.png" alt="" fetchpriority="high" />
+          </div>
+          <div class="gate-panel gate-panel-right">
+            <img src="./media/fort-gateway.png" alt="" fetchpriority="high" />
+          </div>
+        </div>
+
+        <div class="cover-copy">
+          <p class="eyebrow">A celebration of love</p>
+          <h1 id="cover-title">Sachin <span>weds</span> Shivani</h1>
+          <p class="cover-date">10th December 2026</p>
+        </div>
+        <div class="entry-control" id="entry-control">
+          <button class="entry-button" id="enter-invitation" type="button">
+            <span>UNVEIL OUR INVITATION</span>
+            <small>Tap to open with love</small>
+          </button>
+        </div>
+        <a class="scroll-cue" id="scroll-cue" href="#invitation" hidden>Scroll to open <span aria-hidden="true">↓</span></a>
+        <span class="scroll-progress" aria-hidden="true"></span>
+      </section>
+
+      <section class="invitation-content" id="invitation" aria-labelledby="invitation-title">
+        <p class="eyebrow">With your blessings</p>
+        <h2 id="invitation-title">A beautiful beginning,<br />shared with you.</h2>
+        <p>Join Sachin and Shivani as they begin their life together.</p>
+        <p class="content-date">10 December 2026 <span>·</span> Durg, Chhattisgarh</p>
+      </section>
+    </main>
+    <audio id="wedding-audio" src="media/wedding-audio.mp3" loop preload="auto" playsinline></audio>
+    <p class="audio-note" id="audio-note" role="status" aria-live="polite"></p>
+  </body>
+</html>
